@@ -13,8 +13,8 @@ const Video = () => {
         <div className="mainContent">
           <div className="videoContainer">
             <iframe
-             className="videoIFrame"
-              src="https://www.youtube.com/embed/k3Vfj-e1Ma4"
+              className="videoIFrame"
+              src="https://www.youtube.com/embed/M-P4QBt-FWw"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -22,8 +22,7 @@ const Video = () => {
             ></iframe>
           </div>
           <div className="videoTitle">
-            React Node.js Video Sharing App Full Tutorial (Redux, JWT, Cookies)
-            | MERN Stack Youtube Clone
+            Alan Walker - Darkside (feat. Au/Ra and Tomine Harket)
           </div>
           <div className="videoDetails">
             <span className="videoInfo">7,948,154 views • Jun 22, 2022</span>
@@ -49,7 +48,7 @@ const Video = () => {
               <Image
                 preview={false}
                 className="channelLogo"
-                src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo"
+                src="https://cdn.dribbble.com/users/1787323/screenshots/10091971/media/d43c019bfeff34be8816481e843ea8c1.png?compress=1&resize=400x300"
               />
               <div className="channelDetails">
                 <span className="channelName">Suraj Kumar</span>
