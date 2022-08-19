@@ -16,11 +16,11 @@ const Card = ({ type }) => {
         className={checkProps(type, "videoPlayerCardWrapper", "cardWrapper")}
       >
         <div className="cardImage">
-        <Image
-          preview={false}
-          className={checkProps(type, "videoPlayerCardImg", "videoImg")}
-          src="https://i9.ytimg.com/vi_webp/k3Vfj-e1Ma4/mqdefault.webp?v=6277c159&sqp=CIjm8JUG&rs=AOn4CLDeKmf_vlMC1q9RBEZu-XQApzm6sA"
-        />
+          <Image
+            preview={false}
+            className={checkProps(type, "videoPlayerCardImg", "videoImg")}
+            src="https://i9.ytimg.com/vi_webp/k3Vfj-e1Ma4/mqdefault.webp?v=6277c159&sqp=CIjm8JUG&rs=AOn4CLDeKmf_vlMC1q9RBEZu-XQApzm6sA"
+          />
         </div>
         <div
           className={checkProps(type, "videoPlayerCardDetails", "cardDetails")}
@@ -28,7 +28,7 @@ const Card = ({ type }) => {
           <Image
             preview={false}
             className={checkProps(type, "videoPlayerChannelImg", "channelImg")}
-            src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo"
+            src="https://cdn.dribbble.com/users/1787323/screenshots/10091971/media/d43c019bfeff34be8816481e843ea8c1.png?compress=1&resize=400x300"
           />
           <div
             className={checkProps(
