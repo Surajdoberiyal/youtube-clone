@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./card.scss";
+import "./_card.scss";
 import { Image } from "antd";
 
 const Card = ({ type }) => {

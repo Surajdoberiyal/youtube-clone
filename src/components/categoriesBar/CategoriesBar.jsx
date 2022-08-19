@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./categoriesBar.scss";
+import "./_categoriesBar.scss";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 

@@ -1,4 +1,4 @@
-@import "../../global.scss";
+@import "../../_global.scss";
 
 .header {
   background: $bg-Lighter;
@@ -30,7 +30,6 @@
           border: none !important;
         }
       }
-      // .ant-input-group-addon,
       .ant-input-search-button {
         background-color: $soft-Color;
         border: none;
@@ -76,6 +75,24 @@
       background-color: #fafafa;
       color: $bg-Dark;
       font-weight: 500;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .searchBar {
+    width: calc(100% - 10%) !important;
+
+    .ant-input-wrapper,
+    .ant-input-affix-wrapper,
+    .ant-input-group-addon,
+    .ant-input-search-button {
+      height: 40px !important;
+    }
+  }
+  .header {
+    .headerRightSideIcons {
+      display: none !important;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.scss";
+import "./_home.scss";
 import Card from "../../components/Card/Card";
 import CategoriesBar from "../../components/categoriesBar/CategoriesBar";
 

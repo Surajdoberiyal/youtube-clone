@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Input } from "antd";
 import Comment from "./Comment/Comment";
-import "./comments.scss";
+import "./_comments.scss";
 
 const Comments = () => {
   return (

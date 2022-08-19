@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, Button } from "antd";
-import "./signIn.scss";
+import "./_signIn.scss";
 
 const SignIn = () => {
   return (

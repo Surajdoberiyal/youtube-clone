@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./global.scss";
+import "./_global.scss";
 import Home from "./pages/Home/Home";
 import Video from "./pages/Video/Video";
 import SignIn from "./pages/SignIn/SignIn";

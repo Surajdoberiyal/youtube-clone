@@ -3,7 +3,7 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { MdNotificationsActive } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
 import { IoApps } from "react-icons/io5";
-import "./header.scss";
+import "./_header.scss";
 import { Input, Avatar } from "antd";
 
 const Header = ({ collapsed, setCollapsed }) => {

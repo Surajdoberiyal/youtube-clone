@@ -4,7 +4,7 @@ import { MdOutlineThumbUp, MdOutlineThumbDown } from "react-icons/md";
 import { RiShareForwardFill, RiPlayListAddFill } from "react-icons/ri";
 import Card from "../../components/Card/Card";
 import Comments from "../../components/Comments/Comments";
-import "./video.scss";
+import "./_video.scss";
 
 const Video = () => {
   return (
@@ -13,8 +13,7 @@ const Video = () => {
         <div className="mainContent">
           <div className="videoContainer">
             <iframe
-              width="100%"
-              height="520"
+             className="videoIFrame"
               src="https://www.youtube.com/embed/k3Vfj-e1Ma4"
               title="YouTube video player"
               frameborder="0"
@@ -69,6 +68,7 @@ const Video = () => {
 
           <Comments />
         </div>
+        <div className="recommandedVideos">Recommanded videos for you</div>
         <div className="rightSideRecommandations">
           <Card type="sm" />
           <Card type="sm" />

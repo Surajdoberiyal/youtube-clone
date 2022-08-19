@@ -19,7 +19,7 @@ import {
 import { Link } from "react-router-dom";
 import { Layout, Image, Button } from "antd";
 import logo from "../../img/logo.png";
-import "./sidebar.scss";
+import "./_sidebar.scss";
 
 const { Sider } = Layout;
 
@@ -114,7 +114,12 @@ const Sidebar = ({ collapsed }) => {
   ];
 
   return (
-    <Sider className="Sidebar" trigger={null} collapsible collapsed={collapsed}>
+    <Sider
+      className={collapsed ? "Sidebar" : "hide_Sidebar Sidebar"}
+      trigger={null}
+      collapsible
+      collapsed={collapsed}
+    >
       <Link to="/" classname="navigationLink">
         <div className="logoWrapper">
           <Image preview={false} src={logo} className="YoutubeLogo" />

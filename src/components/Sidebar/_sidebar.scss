@@ -1,4 +1,4 @@
-@import "../../global.scss";
+@import "../../_global.scss";
 
 .Sidebar {
   background: $bg-Lighter !important;
@@ -102,5 +102,11 @@
   }
   *::-webkit-scrollbar-thumb {
     background-color: #555;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hide_Sidebar {
+    display: none;
   }
 }
