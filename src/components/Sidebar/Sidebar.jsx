@@ -17,7 +17,7 @@ import {
   MdOutlineHelp,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { Layout, Image } from "antd";
+import { Layout, Image, Button } from "antd";
 import logo from "../../img/logo.png";
 import "./sidebar.scss";
 
@@ -117,7 +117,7 @@ const Sidebar = ({ collapsed }) => {
     <Sider className="Sidebar" trigger={null} collapsible collapsed={collapsed}>
       <Link to="/" classname="navigationLink">
         <div className="logoWrapper">
-          <Image preview={false} src={logo} className="logo" />
+          <Image preview={false} src={logo} className="YoutubeLogo" />
           {collapsed ? "" : "YouTube"}
         </div>
       </Link>
@@ -157,30 +157,34 @@ const Sidebar = ({ collapsed }) => {
                 {e.slice(3, 5).map((elem) => {
                   return (
                     <Link to={elem?.link} classname="navigationLink">
-                    <div className="item">
-                      {elem.icon}
-                      {elem.label}
-                    </div>
-                  </Link>
+                      <div className="item">
+                        {elem.icon}
+                        {elem.label}
+                      </div>
+                    </Link>
                   );
                 })}
                 <div className="textGroup">
-                  <span>Sign in to like videos, comment, and subscribe.</span>
-                  <button className="signInBtn">
-                    <MdOutlineAccountCircle />
-                    SIGN IN
-                  </button>
+                  <span className="signInText">
+                    Sign in to like videos, comment, and subscribe.
+                  </span>
+                  <Link to="/signin" classname="navigationLink">
+                    <Button className="signInBtn">
+                      <MdOutlineAccountCircle />
+                      SIGN IN
+                    </Button>
+                  </Link>
                 </div>
                 <div className="sidebarLine"></div>
                 <div className="paraText">BEST OF SURAJ</div>
                 {e.slice(5, 11).map((elem) => {
                   return (
                     <Link to={elem?.link} classname="navigationLink">
-                    <div className="item">
-                      {elem.icon}
-                      {elem.label}
-                    </div>
-                  </Link>
+                      <div className="item">
+                        {elem.icon}
+                        {elem.label}
+                      </div>
+                    </Link>
                   );
                 })}
                 <div className="sidebarLine"></div>

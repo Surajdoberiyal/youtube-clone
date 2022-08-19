@@ -35,6 +35,13 @@
   background-color: #555;
 }
 
+@media screen and (max-width: 600px) {
+  * {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+  }
+}
 .Sidebar {
   background: #202020 !important;
   color: white;
@@ -51,6 +58,7 @@
 }
 .Sidebar .ant-layout-sider-children {
   padding-bottom: 20px;
+  overflow-y: hidden;
 }
 .Sidebar .ant-layout-sider-children:hover {
   overflow-y: scroll;
@@ -61,12 +69,14 @@
   align-items: center;
   gap: 10px;
   font-weight: bold;
-  padding: 20px;
+  padding: 10px 30px;
+  margin: 5px 0px;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
 }
-.Sidebar .logoWrapper img {
-  height: 25px;
+.Sidebar .logoWrapper .YoutubeLogo {
+  width: auto;
+  height: 20px;
 }
 .Sidebar .sidebarLine {
   margin: 15px 0px;
@@ -78,9 +88,9 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  cursor: pointer;
   padding: 10px 30px;
   margin: 5px 0px;
+  cursor: pointer;
 }
 .Sidebar .item:hover {
   background-color: #373737;
@@ -94,7 +104,7 @@
   display: flex;
   flex-direction: column;
 }
-.Sidebar .textGroup span {
+.Sidebar .textGroup .signInText {
   margin-bottom: 15px;
 }
 .Sidebar .textGroup .signInBtn {
@@ -113,6 +123,11 @@
 .Sidebar .textGroup .signInBtn svg {
   margin-right: 10px;
 }
+.Sidebar .textGroup .signInBtn:hover {
+  background-color: #121212;
+  border: 1px solid #aaaaaa;
+  color: white;
+}
 .Sidebar .paraText {
   padding: 8px 26px;
   color: #aaaaaa;
@@ -130,7 +145,7 @@
   transition: all 0.2s ease-in-out;
 }
 .Sidebar .Collapseditem svg:hover {
-  font-size: 24px;
+  transform: scale(1.4);
 }
 .Sidebar *::-webkit-scrollbar-thumb {
   background-color: #555;

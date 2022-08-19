@@ -4,6 +4,7 @@ $text-Color: white;
 $text-Soft: #aaaaaa;
 $soft-Color: #373737;
 $bg-Dark: #121212;
+$link-Color: #3ea6ff;
 
 .ant-layout-sider {
   position: sticky !important;
@@ -19,12 +20,13 @@ $bg-Dark: #121212;
 .main-site-content {
   background-color: $bg-Dark !important;
 }
+
 // -------------------- Sign In Button ----------------
 @mixin sign_in_Button {
   padding: 5px 15px;
   background-color: transparent;
-  border: 1px solid #3ea6ff;
-  color: #3ea6ff;
+  border: 1px solid $link-Color;
+  color: $link-Color;
   border-radius: 3px;
   font-weight: 500;
   margin-top: 10px;
@@ -59,4 +61,14 @@ $bg-Dark: #121212;
 
 *::-webkit-scrollbar-thumb:hover {
   background-color: #555;
+}
+
+
+@media screen and (max-width:600px) {
+  *{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+  }
+  
 }

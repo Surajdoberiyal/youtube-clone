@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./global.scss";
 import Home from "./pages/Home/Home";
 import Video from "./pages/Video/Video";
+import SignIn from "./pages/SignIn/SignIn";
 
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -17,14 +18,15 @@ const App = () => {
         <Layout className="site-layout">
           <Header collapsed={collapsed} setCollapsed={setCollapsed} />
           <Layout className="main-site-content">
-          <Routes>
-            <Route path="/">
-              <Route index element={<Home />} />
-              <Route path="video">
-                <Route path=":id" element={<Video />} />
+            <Routes>
+              <Route path="/">
+                <Route index element={<Home />} />
+                <Route path="signin" element={<SignIn />} />
+                <Route path="video">
+                  <Route path=":id" element={<Video />} />
+                </Route>
               </Route>
-            </Route>
-          </Routes>
+            </Routes>
           </Layout>
         </Layout>
       </BrowserRouter>

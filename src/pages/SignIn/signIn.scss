@@ -1,0 +1,110 @@
+@import "../../global.scss";
+
+.signInContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: $text-Color;
+
+  .signInWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: $bg-Lighter;
+    border: 1px solid $soft-Color;
+    border-radius: 5px;
+    padding: 20px 30px;
+    gap: 10px;
+    width: calc(100vw - 75vw);
+
+    .signInTitle {
+      font-size: 24px;
+      font-weight: 700;
+      color: $text-Color;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 400;
+      color: $text-Color;
+      font-style: italic;
+    }
+
+    .signInInput {
+      border: 1px solid $soft-Color;
+      border-radius: 3px;
+      padding: 10px;
+      background-color: transparent;
+      width: 100%;
+      color: $text-Color;
+      margin: 5px 0px;
+    }
+    .signInButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      border: none;
+      padding: 10px 40px;
+      font-weight: 500;
+      background-color: $soft-Color;
+      color: $text-Color;
+      margin: 10px 0px;
+
+      &:hover {
+        background-color: $bg-Dark;
+      }
+    }
+  }
+  .signInMore {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 12px;
+    width: calc(100vw - 76vw);
+
+    span {
+      color: $text-Soft;
+      cursor: pointer;
+      &:hover {
+        color: $text-Color;
+      }
+    }
+
+    .signInLinks {
+      display: flex;
+      margin-left: 50px;
+      h4 {
+        cursor: pointer;
+        padding: 0px 10px;
+        color: $text-Soft;
+        &:hover {
+          color: $text-Color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signInContainer {
+    .signInWrapper {
+      width: calc(100vw - 30vw);
+    }
+    .signInMore {
+      width: calc(100vw - 30vw);
+    }
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .signInContainer {
+    .signInWrapper {
+      width: calc(100vw - 50vw);
+    }
+    .signInMore {
+      width: calc(100vw - 50vw);
+    }
+  }
+}
