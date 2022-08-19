@@ -1,0 +1,81 @@
+@import "../../global.scss";
+
+.header {
+  background: $bg-Lighter;
+  color: $text-Color;
+  padding: 0px 20px !important;
+  height: 60px;
+  position: sticky !important;
+  top: 0px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+
+  .collapsedTrigger {
+    cursor: pointer;
+    svg {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+  }
+
+  .searchBar {
+    width: 50%;
+    .inputSearch {
+      .ant-input-wrapper,
+      .ant-input-affix-wrapper {
+        height: 45px;
+        &:focus {
+          border: none !important;
+        }
+      }
+      // .ant-input-group-addon,
+      .ant-input-search-button {
+        background-color: $soft-Color;
+        border: none;
+        width: 60px;
+        height: 45px;
+
+        &:focus {
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
+        svg {
+          margin-top: 5px;
+          font-size: 20px;
+        }
+      }
+      .ant-input-affix-wrapper {
+        background-color: $bg-Dark !important;
+        border: 0.5px solid $bg-Lighter;
+      }
+      .ant-input-affix-wrapper > input {
+        color: $text-Color;
+        background-color: $bg-Dark !important;
+        border: none;
+      }
+      .ant-input-clear-icon {
+        color: $text-Soft;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .headerRightSideIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px 30px;
+    cursor: pointer;
+    svg {
+      font-size: 18px;
+    }
+    span {
+      background-color: #fafafa;
+      color: $bg-Dark;
+      font-weight: 500;
+    }
+  }
+}

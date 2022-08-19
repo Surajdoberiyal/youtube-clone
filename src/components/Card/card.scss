@@ -1,0 +1,74 @@
+@import "../../global.scss";
+
+.cardWrapper {
+  margin-bottom: 45px;
+  width: 300px;
+  cursor: pointer;
+  .cardImage {
+    .ant-image {
+      width: 100%;
+    }
+  }
+  .videoImg {
+    width: 100%;
+    height: 200px;
+    background-color: #999;
+    flex: 1;
+    border-radius: 2px;
+  }
+
+  .cardDetails {
+    display: flex;
+    margin-top: 16px;
+    gap: 12px;
+    flex: 1;
+
+    .channelImg {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #999;
+    }
+  }
+
+  .contentWrapper {
+    font-size: 12px;
+    color: $text-Soft;
+
+    .cardTitle {
+      font-size: 14px;
+      font-weight: 500;
+      color: $text-Color;
+    }
+    .cardChannelName {
+      margin: 5px 0px;
+    }
+  }
+}
+
+// Video Player Cards css
+
+.videoPlayerCardWrapper {
+  margin-bottom: 20px;
+  width: inherit;
+  cursor: pointer;
+  display: flex;
+
+  .videoPlayerCardImg {
+    width: inherit;
+    height: inherit;
+    flex: 0.6 1;
+  }
+  .videoPlayerCardDetails {
+    margin-top: 0px;
+    align-items: center;
+
+    .videoPlayerChannelImg {
+      display: none;
+    }
+  }
+
+  .videoPlayerContentWrapper {
+    padding: 0px 5px;
+  }
+}

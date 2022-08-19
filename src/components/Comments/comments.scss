@@ -1,0 +1,62 @@
+@import "../../global.scss";
+
+
+
+//------------------ Comments Component----------------
+
+.commentsWrapper {
+  .commentWrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .commentsChannelImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .commentsInput {
+    border: none;
+    border-bottom: 1px solid $text-Soft;
+    color: $text-Soft;
+    background-color: transparent;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+  }
+}
+
+//------------------ Comment Component ----------------
+
+.commentWrapper {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0px;
+
+  .commentChannelImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .commentsDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: $text-Color;
+
+    .commentUserName {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .commentTiming {
+      font-size: 12px;
+      font-weight: 400;
+      color: $text-Soft;
+      margin-left: 5px;
+    }
+    .commentsPara {
+      font-size: 14px;
+    }
+  }
+}

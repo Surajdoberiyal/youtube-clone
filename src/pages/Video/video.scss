@@ -1,0 +1,93 @@
+@import "../../global.scss";
+
+.videoWrapper {
+  display: flex;
+  gap: 24px;
+  background-color: $bg-Dark;
+  padding: 20px;
+
+  .videoPlayerLine {
+    margin: 15px 0px;
+    border: 0.5px solid #373737;
+  }
+  .mainContent {
+    flex: 5;
+  }
+  .videoTitle {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: $text-Color;
+  }
+  .videoDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+  }
+  .videoInfo {
+    color: $text-Soft;
+  }
+  .videoPlayerBtns {
+    display: flex;
+    gap: 20px;
+    color: $text-Color;
+  }
+  .videoPlayerIconsBtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .videoPlayerChannelWrapper {
+    display: flex;
+    justify-content: space-between;
+    .channelInfo {
+      display: flex;
+      gap: 20px;
+
+      .channelLogo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .channelDetails {
+        display: flex;
+        flex-direction: column;
+        color: $text-Color;
+
+        .channelName {
+          font-weight: 500;
+        }
+        .channelCounter {
+          margin-top: 5px;
+          margin-bottom: 20px;
+          color: $text-Soft;
+          font-size: 12px;
+        }
+        .channelDescription {
+          font-size: 14px;
+        }
+      }
+    }
+    .channelSubscribeBtn {
+      background-color: #cc1a00;
+      font-weight: 500;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      height: max-content;
+      padding: 7px 20px;
+      cursor: pointer;
+      &:hover{
+        background-color: #b00000;
+      }
+    }
+  }
+}
+
+.rightSideRecommandations {
+  flex: 2;
+}

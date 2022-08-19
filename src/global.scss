@@ -1,0 +1,62 @@
+$bg-Color: #181818;
+$bg-Lighter: #202020;
+$text-Color: white;
+$text-Soft: #aaaaaa;
+$soft-Color: #373737;
+$bg-Dark: #121212;
+
+.ant-layout-sider {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+}
+
+.navigationLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-site-content {
+  background-color: $bg-Dark !important;
+}
+// -------------------- Sign In Button ----------------
+@mixin sign_in_Button {
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 1px solid #3ea6ff;
+  color: #3ea6ff;
+  border-radius: 3px;
+  font-weight: 500;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  svg {
+    margin-right: 10px;
+  }
+}
+
+// -------------------- Scroll Bar ----------------
+
+*::-webkit-scrollbar {
+  width: 16px;
+  background-color: $bg-Lighter;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  height: 56px;
+  border-radius: 8px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  background-color: $text-Soft;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

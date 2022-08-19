@@ -1,0 +1,10 @@
+@import "../../global.scss";
+
+.mainContentWrapper {
+  padding: 24px;
+  background-color: $bg-Color;
+  color: $text-Color;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
