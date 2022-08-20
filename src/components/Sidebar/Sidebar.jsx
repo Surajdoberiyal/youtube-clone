@@ -113,6 +113,25 @@ const Sidebar = ({ collapsed }) => {
     ],
   ];
 
+  const handleOperationOfSidebarContent = (
+    startSlicing,
+    endSlicing,
+    sidebarArray
+  ) => {
+    return sidebarArray?.map((elem) => {
+      return elem.slice(startSlicing, endSlicing).map((e) => {
+        return (
+          <Link to={e?.link} classname="navigationLink">
+            <div className="item">
+              {e.icon}
+              {e.label}
+            </div>
+          </Link>
+        );
+      });
+    });
+  };
+
   return (
     <Sider
       className={collapsed ? "Sidebar" : "hide_Sidebar Sidebar"}
@@ -128,84 +147,35 @@ const Sidebar = ({ collapsed }) => {
       </Link>
 
       {collapsed ? (
-        <>
-          {sidebarContentArray?.map((elem) => {
+        sidebarContentArray?.map((elem) => {
+          return elem.map((e) => {
             return (
-              <>
-                {elem.map((e) => {
-                  return (
-                    <Link to={e?.link} classname="navigationLink">
-                      <div className="Collapseditem">{e.icon}</div>
-                    </Link>
-                  );
-                })}
-              </>
+              <Link to={e?.link} classname="navigationLink">
+                <div className="Collapseditem">{e.icon}</div>
+              </Link>
             );
-          })}
-        </>
+          });
+        })
       ) : (
         <div className="sidebarWrapper">
-          {sidebarContentArray.map((e) => {
-            return (
-              <>
-                {e.slice(0, 3).map((elem) => {
-                  return (
-                    <Link to={elem?.link} classname="navigationLink">
-                      <div className="item">
-                        {elem.icon}
-                        {elem.label}
-                      </div>
-                    </Link>
-                  );
-                })}
-                <div className="sidebarLine"></div>
-                {e.slice(3, 5).map((elem) => {
-                  return (
-                    <Link to={elem?.link} classname="navigationLink">
-                      <div className="item">
-                        {elem.icon}
-                        {elem.label}
-                      </div>
-                    </Link>
-                  );
-                })}
-                <div className="textGroup">
-                  <span className="signInText">
-                    Sign in to like videos, comment, and subscribe.
-                  </span>
-                  <Link to="/signin" classname="navigationLink">
-                    <Button className="signInBtn">
-                      <MdOutlineAccountCircle />
-                      SIGN IN
-                    </Button>
-                  </Link>
-                </div>
-                <div className="sidebarLine"></div>
-                <div className="paraText">BEST OF SURAJ</div>
-                {e.slice(5, 11).map((elem) => {
-                  return (
-                    <Link to={elem?.link} classname="navigationLink">
-                      <div className="item">
-                        {elem.icon}
-                        {elem.label}
-                      </div>
-                    </Link>
-                  );
-                })}
-                <div className="sidebarLine"></div>
-                {e.slice(11, 14).map((elem) => {
-                  return (
-                    <Link to={elem?.link} classname="navigationLink">
-                      <div className="item">
-                        {elem.icon}
-                        {elem.label}
-                      </div>
-                    </Link>
-                  );
-                })}
-              </>
-            );
-          })}
+          {handleOperationOfSidebarContent(0, 3, sidebarContentArray)}
+          <div className="sidebarLine"></div>
+          {handleOperationOfSidebarContent(3, 5, sidebarContentArray)}
+          <div className="textGroup">
+            <span className="signInText">
+              Sign in to like videos, comment, and subscribe.
+            </span>
+            <Link to="/signin" classname="navigationLink">
+              <Button className="signInBtn">
+                <MdOutlineAccountCircle />
+                SIGN IN
+              </Button>
+            </Link>
+          </div>
+          <div className="sidebarLine"></div>
+          <div className="paraText">BEST OF SURAJ</div>
+          {handleOperationOfSidebarContent(5, 11, sidebarContentArray)}
+          {handleOperationOfSidebarContent(11, 14, sidebarContentArray)}
         </div>
       )}
     </Sider>
