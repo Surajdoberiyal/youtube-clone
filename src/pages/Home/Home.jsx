@@ -1,30 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./_home.scss";
 import Card from "../../components/Card/Card";
 import CategoriesBar from "../../components/categoriesBar/CategoriesBar";
+import axios from "axios";
 
-const Home = () => {
+const Home = ({ type }) => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      const res = await axios.get(`/videos/${type}`);
+      setVideos(res.data);
+    };
+    fetchVideos();
+  }, [type]);
+
   return (
     <>
       <CategoriesBar />
       <div className="mainContentWrapper">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {videos?.map((video) => {
+          return <Card video={video} />;
+        })}
       </div>
     </>
   );

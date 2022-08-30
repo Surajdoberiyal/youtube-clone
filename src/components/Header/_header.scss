@@ -71,11 +71,29 @@
     svg {
       font-size: 18px;
     }
-    span {
-      background-color: #fafafa;
-      color: $bg-Dark;
-      font-weight: 500;
+    .avatarIcon{
+     height: 35px !important;
+     width: 35px !important;
+     border-radius: 50% ;
+     span{
+      font-size: 16px;
+     }
     }
+
+    .signInWrapper {
+      .signInBtn {
+        margin-top: 0px;
+        background-color: transparent;
+        @include sign_in_Button;
+        &:hover {
+          background-color: $bg-Dark;
+          border: 1px solid $text-Soft;
+          color: $text-Color;
+        }
+      }
+    }
+
+ 
   }
 }
 
@@ -93,6 +111,35 @@
   .header {
     .headerRightSideIcons {
       display: none !important;
+    }
+  }
+}
+
+
+.userAvatarDropdown{
+  .ant-dropdown-menu {
+    background-color: $bg-Color !important;
+    border-radius: 5px !important;
+    button {
+      background-color: transparent;
+      color: $text-Color;
+      border: none;
+  
+      &:hover {
+        background-color: transparent !important;
+        color: $text-Color;
+        border: none;
+      }
+    }
+    .ant-dropdown-menu-item {
+      &:hover {
+        background-color: $bg-Lighter !important;
+      }
+    }
+    .ant-dropdown-menu-title-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

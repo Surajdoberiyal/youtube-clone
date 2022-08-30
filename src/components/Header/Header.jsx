@@ -1,13 +1,42 @@
 import React, { useState } from "react";
-import { AiOutlineMenuUnfold } from "react-icons/ai";
-import { MdNotificationsActive } from "react-icons/md";
+import { AiOutlineMenuUnfold, AiOutlinePoweroff } from "react-icons/ai";
+import { MdNotificationsActive, MdOutlineAccountCircle } from "react-icons/md";
+import { FaPowerOff } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { IoApps } from "react-icons/io5";
 import "./_header.scss";
-import { Input, Avatar } from "antd";
+import { Input, Button, Dropdown, Menu } from "antd";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { logout } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
+import Avatar from 'react-avatar';
+
+
 
 const Header = ({ collapsed, setCollapsed }) => {
   const { Search } = Input;
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+
+  const menu = (
+    <Menu
+      items={[
+        {
+          key: '1',
+          label: (
+            <>
+              <FaPowerOff style={{ color: 'white' }} />
+              <Button onClick={() => dispatch(logout())}>Log out</Button>
+            </>
+          ),
+        },
+
+      ]}
+    />
+  );
+
 
   return (
     <>
@@ -29,9 +58,26 @@ const Header = ({ collapsed, setCollapsed }) => {
           />
         </div>
         <div className="headerRightSideIcons">
-          <MdNotificationsActive />
-          <IoApps />
-          <Avatar>S</Avatar>
+          {currentUser ? (
+            <>
+              <MdNotificationsActive />
+              <IoApps />
+              <Dropdown overlay={menu} overlayClassName="userAvatarDropdown" >
+                <a onClick={(e) => e.preventDefault()}>
+                  <Avatar className="avatarIcon" name="test" />
+                </a>
+              </Dropdown>
+            </>
+          ) : (
+            <div className="signInWrapper">
+              <Link to="/signin" classname="navigationLink">
+                <Button className="signInBtn">
+                  <MdOutlineAccountCircle />
+                  SIGN IN
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </>

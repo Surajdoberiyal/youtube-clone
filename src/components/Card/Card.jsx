@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./_card.scss";
 import { Image } from "antd";
+import { format } from "timeago.js";
+import axios from "axios";
 
-const Card = ({ type }) => {
-  const checkProps = (propType, propsClassName, cardClassName) => {
-    return propType === "sm"
-      ? propsClassName + " " + cardClassName
-      : cardClassName;
-  };
+const checkProps = (propType, propsClassName, cardClassName) => {
+  return propType === "sm"
+    ? propsClassName + " " + cardClassName
+    : cardClassName;
+};
+const Card = ({ type, video }) => {
+  const [channel, setChannel] = useState({});
+
+  useEffect(() => {
+    const fetchChannels = async () => {
+      const res = await axios.get(`/users/find/${video?.userId}`);
+      setChannel(res.data);
+    };
+    fetchChannels();
+  }, [video.userId]);
 
   return (
     <Link to="/video/test" style={{ textDecoration: "none" }}>
@@ -19,7 +30,7 @@ const Card = ({ type }) => {
           <Image
             preview={false}
             className={checkProps(type, "videoPlayerCardImg", "videoImg")}
-            src="https://i9.ytimg.com/vi_webp/k3Vfj-e1Ma4/mqdefault.webp?v=6277c159&sqp=CIjm8JUG&rs=AOn4CLDeKmf_vlMC1q9RBEZu-XQApzm6sA"
+            src={video?.imgUrl}
           />
         </div>
         <div
@@ -28,7 +39,7 @@ const Card = ({ type }) => {
           <Image
             preview={false}
             className={checkProps(type, "videoPlayerChannelImg", "channelImg")}
-            src="https://cdn.dribbble.com/users/1787323/screenshots/10091971/media/d43c019bfeff34be8816481e843ea8c1.png?compress=1&resize=400x300"
+            src={channel?.imgUrl}
           />
           <div
             className={checkProps(
@@ -37,11 +48,11 @@ const Card = ({ type }) => {
               "contentWrapper"
             )}
           >
-            <div className="cardTitle">
-              React Portfolio Website Tutorial From Scratch - Build & Deploy
+            <div className="cardTitle">{video?.title}</div>
+            <div className="cardChannelName">{channel?.name}</div>
+            <div className="cardInfo">
+              {video?.views} views • {format(video?.createdAt)}
             </div>
-            <div className="cardChannelName">Code With Harry</div>
-            <div className="cardInfo">660,908 views • 1 day ago</div>
           </div>
         </div>
       </div>
