@@ -32,8 +32,6 @@ const SignIn = () => {
       }
     }).then(res => {
       dispatch(loginSuccess(res.data));
-      setUserName('')
-      setPassword('')
       toast.success("Login Successfully!");
       navigate("/");
 
@@ -42,6 +40,8 @@ const SignIn = () => {
         dispatch(loginFailure());
         toast.error("Oops! Something went wrong.");
       });
+      setUserName('')
+      setPassword('')
   };
 
 
@@ -72,7 +72,9 @@ const SignIn = () => {
         dispatch(loginFailure());
         toast.error("Oops! Something went wrong.");
       });
-
+    setSignupUserName('')
+    setSignupEmail('')
+    setSignupPassword('')
   };
 
   return (
