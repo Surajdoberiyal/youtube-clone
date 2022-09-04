@@ -7,17 +7,20 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginFailure, loginStart, loginSuccess } from "../../redux/userSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { auth, provider } from '../../firebase'
+import { signInWithPopup } from 'firebase/auth'
 import 'react-toastify/dist/ReactToastify.css';
-
+import { FcGoogle } from 'react-icons/fc';
 
 const SignIn = () => {
 
-  //----------------Login-----------------------
+  //----------------  Login -----------------------
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -31,8 +34,8 @@ const SignIn = () => {
         'content-type': 'application/json'
       }
     }).then(res => {
-      dispatch(loginSuccess(res.data));
       toast.success("Login Successfully!");
+      dispatch(loginSuccess(res.data));
       navigate("/");
 
     })
@@ -40,12 +43,33 @@ const SignIn = () => {
         dispatch(loginFailure());
         toast.error("Oops! Something went wrong.");
       });
-      setUserName('')
-      setPassword('')
+    setUserName('')
+    setPassword('')
   };
 
+  // ------------------------  Sign In with Google ------------------------
 
-  //----------------Sign-up-----------------------
+  const signInwithGoogle = async () => {
+    dispatch(loginStart());
+    signInWithPopup(auth, provider).then((data) => {
+      console.warn(data)
+      axios.post("auth/google", {
+        name: data.user.displayName,
+        email: data.user.email,
+        img: data.user.photoURL,
+      }).then((res) => {
+        toast.success("Login Successfully!");
+        dispatch(loginSuccess(res.data))
+        navigate("/");
+      })
+
+    }).catch((err) => {
+      dispatch(loginFailure());
+      toast.error("Oops! Something went wrong.");
+    })
+  }
+
+  // ----------------  Sign-up   -----------------------
   const [signupUserName, setSignupUserName] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
@@ -59,13 +83,13 @@ const SignIn = () => {
       password: signupPassword,
     }
 
-    axios.post("/auth/signin", JSON.stringify(data), {
+    axios.post("/auth/signup", JSON.stringify(data), {
       headers: {
         'content-type': 'application/json'
       }
     }).then(res => {
-      dispatch(loginSuccess(res.data));
       toast.success("User has been created Successfully!");
+      dispatch(loginSuccess(res.data));
       navigate("/");
     })
       .catch((err) => {
@@ -104,6 +128,10 @@ const SignIn = () => {
             Sign in
           </Button>
           <span className="signInTitle">or</span>
+          <div className="signInWithGoogleWrapper">
+            <FcGoogle />
+            <Button className="signInWithGoogle" onClick={signInwithGoogle}>Continue with Google</Button>
+          </div>
           <Input className="signInInput"
             type="text"
             value={signupUserName}

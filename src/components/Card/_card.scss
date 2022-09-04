@@ -54,6 +54,10 @@
   cursor: pointer;
   display: flex;
 
+  .videoPlayerCardsImg{
+    width: 120px;
+    background-color: #999;
+  }
   .videoPlayerCardImg {
     width: inherit;
     height: inherit;

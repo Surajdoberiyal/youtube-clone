@@ -77,6 +77,18 @@
           font-size: 14px;
         }
       }
+      .channelLogoName{
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+        .sb-avatar__tex{
+          width: 100%;
+          height: 100%;
+        }
+        span{
+          font-size: 16px;
+        }
+      }
     }
     .channelSubscribeBtn {
       background-color: #cc1a00;
@@ -87,6 +99,11 @@
       height: max-content;
       padding: 7px 20px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+     
       &:hover {
         background-color: #b00000;
       }

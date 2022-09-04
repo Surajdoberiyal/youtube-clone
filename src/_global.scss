@@ -1,6 +1,7 @@
 $bg-Color: #181818;
 $bg-Lighter: #202020;
 $text-Color: white;
+$light-color: #e9e9e9;
 $text-Soft: #aaaaaa;
 $soft-Color: #373737;
 $bg-Dark: #121212;
@@ -18,7 +19,7 @@ $link-Color: #3ea6ff;
 }
 
 .main-site-content {
-  background-color: $bg-Dark !important;
+  background-color: $bg-Color !important;
 }
 
 // -------------------- Sign In Button ----------------
@@ -63,12 +64,11 @@ $link-Color: #3ea6ff;
   background-color: #555;
 }
 
-
 // @media screen and (max-width:600px) {
 //   *{
 //     margin: 0px;
 //     padding: 0px;
 //     overflow: hidden;
 //   }
-  
+
 // }

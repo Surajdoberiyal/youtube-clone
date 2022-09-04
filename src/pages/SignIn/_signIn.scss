@@ -34,10 +34,10 @@
     .ant-input-group-addon {
       background-color: red;
     }
-    input:-webkit-autofill { 
+    input:-webkit-autofill {
       -webkit-background-clip: text;
       -webkit-text-fill-color: $text-Color !important;
-  }
+    }
     .signInInput {
       border: 1px solid $soft-Color;
       border-radius: 3px;
@@ -98,6 +98,30 @@
         &:hover {
           color: $text-Color;
         }
+      }
+    }
+  }
+  .signInWithGoogleWrapper {
+    display: flex;
+    padding: 5px 20px;
+    background: white;
+    align-items: center;
+    margin: 20px 0px;
+    background-color: $bg-Color;
+    border: 1px solid $soft-Color;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: $bg-Dark;
+    }
+    .signInWithGoogle {
+      border: none !important;
+      background-color: $bg-Color;
+      border: 1px solid $soft-Color;
+      color: $text-Color;
+      &:hover {
+        background-color: $bg-Dark;
+        color: $light-color;
       }
     }
   }

@@ -11,14 +11,16 @@ import { useSelector } from "react-redux";
 import { logout } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
 import Avatar from 'react-avatar';
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 const Header = ({ collapsed, setCollapsed }) => {
   const { Search } = Input;
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   const menu = (
     <Menu
@@ -28,7 +30,11 @@ const Header = ({ collapsed, setCollapsed }) => {
           label: (
             <>
               <FaPowerOff style={{ color: 'white' }} />
-              <Button onClick={() => dispatch(logout())}>Log out</Button>
+              <Button onClick={() => {
+                toast.success("Logout Successfully!");
+                dispatch(logout());
+                navigate("/signin");
+              }}>Log out</Button>
             </>
           ),
         },
@@ -37,6 +43,7 @@ const Header = ({ collapsed, setCollapsed }) => {
     />
   );
 
+  console.warn(currentUser)
 
   return (
     <>
@@ -64,7 +71,11 @@ const Header = ({ collapsed, setCollapsed }) => {
               <IoApps />
               <Dropdown overlay={menu} overlayClassName="userAvatarDropdown" >
                 <a onClick={(e) => e.preventDefault()}>
-                  <Avatar className="avatarIcon" name="test" />
+                  {
+                    currentUser?.img ? <Avatar className="avatarIcon" src={currentUser?.img} />
+                      : <Avatar className="avatarIcon" name={currentUser?.name} />
+                  }
+
                 </a>
               </Dropdown>
             </>
@@ -80,6 +91,7 @@ const Header = ({ collapsed, setCollapsed }) => {
           )}
         </div>
       </div>
+      <ToastContainer theme="dark" />
     </>
   );
 };

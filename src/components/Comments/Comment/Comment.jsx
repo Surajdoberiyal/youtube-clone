@@ -1,28 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image } from "antd";
 import "../_comments.scss";
+import axios from "axios";
+import Avatar from 'react-avatar';
+import { format } from "timeago.js";
+import { RiDeleteBinLine } from 'react-icons/ri';
+import LoadingBar from "react-top-loading-bar";
+import { toast } from "react-toastify";
 
-const Comment = () => {
+const Comment = ({ comment, currentUser }) => {
+
+  const [channel, setChannel] = useState({});
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const fetchComment = async () => {
+      const res = await axios.get(`/users/find/${comment.userId}`);
+      setChannel(res.data)
+    };
+    fetchComment();
+  }, [comment.userId]);
+
+  const handleDeleteComment = async () => {
+    const res = await axios.delete(`/comments/${currentUser._id}`);
+    setProgress(100)
+    toast.success("Comment Deleted!")
+  }
+
   return (
-    <div className="commentWrapper">
-      <Image
-        preview={false}
-        className="commentChannelImage"
-        src="https://cdn.dribbble.com/users/1787323/screenshots/10091971/media/d43c019bfeff34be8816481e843ea8c1.png?compress=1&resize=400x300"
+    <>
+      <LoadingBar
+        color="#f11946"
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
       />
-      <div className="commentsDetails">
-        <span className="commentUserName">
-          Suraj Kumar
-          <span className="commentTiming">1 day ago</span>
-        </span>
-        <span className="commentsPara">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, ex
-          laboriosam ipsam aliquam voluptatem perferendis provident modi, sequi
-          tempore reiciendis quod, optio ullam cumque? Quidem numquam sint
-          mollitia totam reiciendis?
-        </span>
+
+      <div className="commentContainer">
+        <div className="commentWrapper">
+          {
+            channel.img ? (
+              <Image
+                preview={false}
+                className="commentsChannelImage"
+                src={channel?.img}
+              />
+            ) : (
+              <Avatar className="commentsChannelName" name={channel.name} />
+            )
+          }
+          <div className="commentsDetails">
+            <span className="commentUserName">
+              {channel?.name}
+              <span className="commentTiming">{format(channel?.createdAt)}</span>
+            </span>
+            <span className="commentsPara">
+              {comment.desc}
+            </span>
+          </div>
+
+        </div>
+        {
+          comment && comment.userId === currentUser?._id ? (
+            <div className="deleteComment">
+              <RiDeleteBinLine onClick={handleDeleteComment} />
+            </div>
+          ) : ""
+        }
       </div>
-    </div>
+    </>
   );
 };
 

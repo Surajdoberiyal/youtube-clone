@@ -22,11 +22,11 @@ const Card = ({ type, video }) => {
   }, [video.userId]);
 
   return (
-    <Link to="/video/test" style={{ textDecoration: "none" }}>
+    <Link to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
       <div
         className={checkProps(type, "videoPlayerCardWrapper", "cardWrapper")}
       >
-        <div className="cardImage">
+        <div className={checkProps(type, "videoPlayerCardsImg", "cardImage")}>
           <Image
             preview={false}
             className={checkProps(type, "videoPlayerCardImg", "videoImg")}
