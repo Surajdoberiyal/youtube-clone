@@ -9,6 +9,7 @@ import Video from "./pages/Video/Video";
 import SignIn from "./pages/SignIn/SignIn";
 
 const App = () => {
+  // sidebar collapse 
   const [collapsed, setCollapsed] = useState(false);
 
   return (
